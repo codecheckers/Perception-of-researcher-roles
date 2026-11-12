@@ -1,0 +1,15 @@
+"key","term","model","b","SE","df","t","AIC","paper_b","paper_SE","paper_df","paper_t","b_ok","SE_ok","df_ok","t_ok"
+"FT1","(Intercept)","FT1 Trueness",-0.88,0.11,3.2,-8.04,3503.7,-0.88,0.11,3.2,-8.04,TRUE,TRUE,TRUE,TRUE
+"FT1","severity_num","FT1 Trueness",-0.72,0.13,3,-5.48,3503.7,-0.72,0.13,3,-5.48,TRUE,TRUE,TRUE,TRUE
+"L4","(Intercept)","L4 Likeability (shipped)",3.14,0.02,447.76,179.29,6185.3,3.14,0.03,8.51,100.19,TRUE,TRUE,FALSE,FALSE
+"L4","(Intercept)","L4 Likeability (+vignette)",3.14,0.03,8.24,102.01,6213.3,3.14,0.03,8.51,100.19,TRUE,TRUE,FALSE,FALSE
+"L4","role_ec","L4 Likeability (shipped)",0.67,0.03,447.29,25.6,6185.3,0.67,0.04,16.13,18.14,TRUE,TRUE,FALSE,FALSE
+"L4","role_ec","L4 Likeability (+vignette)",0.67,0.04,15.94,18.38,6213.3,0.67,0.04,16.13,18.14,TRUE,TRUE,FALSE,FALSE
+"L4","role_ec:severity_num","L4 Likeability (shipped)",0.34,0.02,446.68,19.26,6185.3,0.34,0.04,6.86,9.31,TRUE,FALSE,FALSE,FALSE
+"L4","role_ec:severity_num","L4 Likeability (+vignette)",0.34,0.03,5.82,9.8,6213.3,0.34,0.04,6.86,9.31,TRUE,TRUE,FALSE,FALSE
+"L4","severity_num","L4 Likeability (shipped)",-0.16,0.01,1053.96,-11.16,6185.3,-0.16,0.03,5.92,-4.71,TRUE,FALSE,FALSE,FALSE
+"L4","severity_num","L4 Likeability (+vignette)",-0.16,0.03,5.82,-4.78,6213.3,-0.16,0.03,5.92,-4.71,TRUE,TRUE,FALSE,FALSE
+"T4","(Intercept)","T4 Integrity",3.13,0.06,6.34,54.79,5805.8,3.13,0.06,6.34,54.79,TRUE,TRUE,TRUE,TRUE
+"T4","role_ec","T4 Integrity",1.18,0.06,7.48,19.75,5805.8,1.18,0.06,7.48,19.75,TRUE,TRUE,TRUE,TRUE
+"T4","role_ec:severity_num","T4 Integrity",0.41,0.07,5.99,5.92,5805.8,0.41,0.07,5.99,5.92,TRUE,TRUE,TRUE,TRUE
+"T4","severity_num","T4 Integrity",-0.29,0.07,5.99,-4.19,5805.8,-0.29,0.07,5.99,-4.19,TRUE,TRUE,TRUE,TRUE

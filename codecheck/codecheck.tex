@@ -1,0 +1,417 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={CODECHECK certificate},
+  pdfauthor={Cheryl Lim},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{CODECHECK certificate}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{From Misconduct to Reform: Understanding Perceptions of Those
+who Commit and Call out Questionable Research Practices}
+\author{Cheryl Lim}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\textbf{Certificate YYYY-NNN.} Checked by Cheryl Lim (ORCID
+0009-0004-5766-1392), about 5 hours. Certificate DOI:
+\url{https://doi.org/10.5281/zenodo.XXXXXXX}
+
+\section{Summary}\label{summary}
+
+\textbf{Verdict: largely reproduced, with modifications; the reported
+exclusion counts could not be reproduced.} The author's analysis file
+ran unmodified from start to finish (about 4.3 minutes) and reproduced
+the author's committed HTML. The Integrity, Trueness, attribute-choice,
+CFA and demographic results of the Outcomes Report were reproduced. The
+Likeability tables were reproduced only with a model structure that the
+shipped code rejects as singular, and the report's tables use a
+different severity coding from the code.
+
+\section{1. Who checked what, and how}\label{who-checked-what-and-how}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Paper:} Lewis, S. C. and Tullett, A. M., \emph{From Misconduct
+  to Reform} (Outcomes Report), Lifecycle Journal, DOI
+  10.71240/lcyc.675029. Research plan 10.71240/lcyc.359952;
+  preregistration \url{https://osf.io/5vsca/}.
+\item
+  \textbf{Code and data:}
+  \url{https://github.com/slewis5920/Perception-of-researcher-roles}
+  (forked to
+  \url{https://github.com/codecheckers/Perception-of-researcher-roles},
+  commit \texttt{0997b11}). Main file:
+  \texttt{DISS\_CLEANING\_AND\_ANALYSIS\ (7).Rmd}; data
+  \texttt{Diss\_full.csv}.
+\item
+  \textbf{Method:} the file was run in a fresh R session with
+  \texttt{rmarkdown::render()} into a new environment (using an
+  identical copy with a simpler filename), without editing the code.
+  Output was compared with the author's committed HTML and with the
+  tables, text and figures of the report. R 4.6.1, Windows 11, CODECHECK
+  package 0.32.0.
+\item
+  \textbf{Against the author's HTML:} all results matched to printed
+  precision, except the attribute-choice logistic models (A1 to A4),
+  which differ at the optimiser-tolerance level (e.g.~A1 intercept
+  -0.74488 vs -0.74492; A3 to A4 chi-square 458.31 vs 458.30), with no
+  change in significance. Only lavaan (0.7-2 vs 0.7-3) and semTools
+  (0.5-9 vs 0.5-10) differ visibly.
+\end{itemize}
+
+\section{2. What matched the report}\label{what-matched-the-report}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Report item
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Result
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Sample description, reliability, CFA (chi-square differences 72.68 and
+115.52, SRMR .022, GFI .980) & Match \\
+Integrity: Tables 3, 4, 8 and Figure 1 & Match (Table 4 b, SE, df and t
+identical after recoding severity), except Model I0 (section 3) \\
+Trueness: Tables 7, 10 and Figure 3 & Match (identical after
+recoding) \\
+Attribute models: Tables 11 and 12 & Match \\
+Likeability: Tables 5, 6, 9 and Figure 2 & Match only with the model in
+section 3 \\
+\end{longtable}
+}
+
+\section{3. What did not match}\label{what-did-not-match}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Severity coding.} The report's tables use -1/0/1; the code and
+  README use 0/1/2. Slopes, interactions, AIC and BIC are unaffected;
+  intercepts and Role effects shift by a constant, and the shift
+  reproduces the report (Integrity intercept 3.4197 to 3.13, Role 0.7683
+  to 1.18; Trueness intercept -0.1558 to -0.88).
+\item
+  \textbf{Likeability.} The shipped code tests a vignette-intercept
+  version of the model, finds it singular and reports a version without
+  it (AIC of the interaction model 6185.3 vs 6169.5 in Table 5; df 447
+  to 1054 vs 5.9 to 16.1 in Table 6). Refitting the model the code
+  rejects (maximal participant random effects plus a vignette intercept,
+  severity coded -1/0/1) reproduces the report exactly: AIC/BIC of M0,
+  M2A, M2B, M2C and M2D (6191.7/6268.3, 6183.5/6266.0, 6193.5/6276.0,
+  6184.5/6272.9, 6169.5/6263.8) and the b, SE, df and t of Table 6, with
+  a singular-fit message.
+\item
+  \textbf{Exclusions.} The no-variability and attention-check filters
+  return 0 rows, because \texttt{as.numeric()} is applied to text
+  responses (e.g.~``3 = neither honest nor dishonest'') and
+  \texttt{attention1} is text compared with the number 2. They do not
+  feed the analysis dataset (N = 455). Applying the criteria separately:
+  7 participants have no ratings (the models contain 448 participants),
+  4 gave identical responses on every item answered, 30 failed the
+  attention check; 421 or fewer would remain. The report states 0
+  exclusions for no variability and incomplete ratings.
+\item
+  \textbf{Sample.} The report says 655 recruited; the data file has 675
+  rows (675 - 220 under 7 minutes = 455, as reported).
+\item
+  \textbf{Integrity Table 8, Model I0:} report BIC 6234.2 and
+  participant variance 0.007; code 5861.6 and 0.041.
+\item
+  \textbf{Text statistics} for ``Model 1A/2A'' (e.g.~b = 1.18, SE = .06,
+  t(7.48) = 19.75) are the Role row of the interaction models (Tables 4
+  and 6), not the Role-only models. Minor: r = .79 in the text vs
+  composite correlation .803.
+\end{enumerate}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lr@{}}
+\toprule\noalign{}
+Stage & Rows \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+diss.full & 675 \\
+filtered\_by\_date & 675 \\
+filtered\_by\_consent & 675 \\
+filtered\_by\_duration & 455 \\
+filtered\_by\_age & 455 \\
+filtered\_by\_variability & 0 \\
+filtered\_by\_attention & 0 \\
+\end{longtable}
+}
+
+\section{4. Observations on the code (recorded, not
+fixed)}\label{observations-on-the-code-recorded-not-fixed}
+
+\begin{itemize}
+\tightlist
+\item
+  The random-effects fallback differs between outcomes (Integrity:
+  participant role slope; Likeability: the maximal singular model), and
+  all Likeability models fitted by the shipped code are singular.
+\item
+  In Tables 8 and 9 the ``model comparison'' df and p rows repeat the
+  chi-square values, and some ICCs include covariance terms.
+\item
+  README: inconsistent Rmd filename, \texttt{rmarkdown} not listed,
+  versions not pinned.
+\end{itemize}
+
+\textbf{Not checked:} the a priori power analysis (Table 1); robustness
+models, contrasts and ANOVAs are not reported in the paper.
+
+\section{5. To repeat the key checks}\label{to-repeat-the-key-checks}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{env }\OtherTok{\textless{}{-}} \FunctionTok{new.env}\NormalTok{()}
+\FunctionTok{file.copy}\NormalTok{(}\StringTok{"DISS\_CLEANING\_AND\_ANALYSIS (7).Rmd"}\NormalTok{, }\StringTok{"analysis\_copy.Rmd"}\NormalTok{)}
+\NormalTok{rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{"analysis\_copy.Rmd"}\NormalTok{, }\AttributeTok{output\_format =} \StringTok{"html\_document"}\NormalTok{,}
+                  \AttributeTok{output\_file =} \StringTok{"reproduced\_analysis.html"}\NormalTok{, }\AttributeTok{output\_dir =} \StringTok{"codecheck"}\NormalTok{, }\AttributeTok{envir =}\NormalTok{ env)}
+\FunctionTok{library}\NormalTok{(lmerTest)}
+\NormalTok{d }\OtherTok{\textless{}{-}}\NormalTok{ env}\SpecialCharTok{$}\NormalTok{tl\_dat; d}\SpecialCharTok{$}\NormalTok{severity\_num }\OtherTok{\textless{}{-}}\NormalTok{ d}\SpecialCharTok{$}\NormalTok{severity\_num }\SpecialCharTok{{-}} \DecValTok{1}        \CommentTok{\# report coding}
+\NormalTok{ctl }\OtherTok{\textless{}{-}} \FunctionTok{lmerControl}\NormalTok{(}\AttributeTok{optimizer =} \StringTok{"bobyqa"}\NormalTok{, }\AttributeTok{optCtrl =} \FunctionTok{list}\NormalTok{(}\AttributeTok{maxfun =} \FloatTok{2e5}\NormalTok{))}
+\NormalTok{rhs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\AttributeTok{M0 =} \StringTok{"1"}\NormalTok{, }\AttributeTok{M2A =} \StringTok{"role\_ec"}\NormalTok{, }\AttributeTok{M2B =} \StringTok{"severity\_num"}\NormalTok{,}
+         \AttributeTok{M2C =} \StringTok{"role\_ec+severity\_num"}\NormalTok{, }\AttributeTok{M2D =} \StringTok{"role\_ec*severity\_num"}\NormalTok{)}
+\NormalTok{lv }\OtherTok{\textless{}{-}} \FunctionTok{lapply}\NormalTok{(rhs, }\ControlFlowTok{function}\NormalTok{(r) }\FunctionTok{lmer}\NormalTok{(}\FunctionTok{as.formula}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"likeability \textasciitilde{}"}\NormalTok{, r,}
+        \StringTok{"+ (1 + role\_ec*severity\_num | responseid) + (1 | vignette\_id)"}\NormalTok{)), d, }\AttributeTok{REML =} \ConstantTok{FALSE}\NormalTok{, }\AttributeTok{control =}\NormalTok{ ctl))}
+\FunctionTok{sapply}\NormalTok{(lv, AIC); }\FunctionTok{sapply}\NormalTok{(lv, BIC)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{6. Computing environment}\label{computing-environment}
+
+\begin{verbatim}
+## R version 4.6.1 (2026-06-24 ucrt)
+## Platform: x86_64-w64-mingw32/x64
+## Running under: Windows 11 x64 (build 26200)
+## 
+## Matrix products: default
+##   LAPACK version 3.12.1
+## 
+## locale:
+## [1] LC_COLLATE=English_United Kingdom.utf8 
+## [2] LC_CTYPE=English_United Kingdom.utf8   
+## [3] LC_MONETARY=English_United Kingdom.utf8
+## [4] LC_NUMERIC=C                           
+## [5] LC_TIME=English_United Kingdom.utf8    
+## 
+## time zone: Europe/London
+## tzcode source: internal
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils    
+## [5] datasets  methods   base     
+## 
+## other attached packages:
+##  [1] afex_1.5-1       semTools_0.5-10 
+##  [3] lavaan_0.7-3     emmeans_2.0.4   
+##  [5] lmerTest_3.2-1   lme4_2.1-0      
+##  [7] Matrix_1.7-5     nlme_3.1-169    
+##  [9] lattice_0.22-9   kableExtra_1.4.1
+## [11] knitr_1.52       broom_1.0.13    
+## [13] effectsize_1.0.3 car_3.1-5       
+## [15] carData_3.0-6    psych_2.6.9     
+## [17] here_1.0.2       janitor_2.2.1   
+## [19] lubridate_1.9.5  forcats_1.0.1   
+## [21] stringr_1.6.0    readr_2.2.0     
+## [23] tidyr_1.3.2      ggplot2_4.0.3   
+## [25] tidyverse_2.0.0  purrr_1.2.2     
+## [27] tibble_3.3.1     dplyr_1.2.1     
+## [29] sjstats_0.19.1   tinytex_0.61    
+## [31] pwr_1.3-0       
+## 
+## loaded via a namespace (and not attached):
+##   [1] RColorBrewer_1.1-3  rstudioapi_0.19.0  
+##   [3] jsonlite_2.0.0      datawizard_1.5.0   
+##   [5] magrittr_2.0.5      estimability_2.0.0 
+##   [7] magick_2.9.1        farver_2.1.2       
+##   [9] nloptr_2.2.1        rmarkdown_2.32     
+##  [11] fs_2.1.0            vctrs_0.7.3        
+##  [13] memoise_2.0.1       minqa_1.2.8        
+##  [15] askpass_1.2.1       gh_1.6.1           
+##  [17] htmltools_0.5.9     curl_8.1.0         
+##  [19] cellranger_1.1.0    Formula_1.2-6      
+##  [21] sass_0.4.10         bslib_0.12.0       
+##  [23] keyring_1.4.1       pdftools_3.9.1     
+##  [25] pbkrtest_0.5.5      plyr_1.8.9         
+##  [27] cachem_1.1.0        whisker_0.4.1      
+##  [29] lifecycle_1.0.5     pkgconfig_2.0.3    
+##  [31] R6_2.6.1            fastmap_1.2.0      
+##  [33] rbibutils_2.4.1     snakecase_0.11.1   
+##  [35] digest_0.6.39       numDeriv_2016.8-1.1
+##  [37] rsvg_2.7.0          rprojroot_2.1.1    
+##  [39] textshaping_1.0.5   labeling_0.4.3     
+##  [41] timechange_0.4.0    httr_1.4.9         
+##  [43] abind_1.4-8         compiler_4.6.1     
+##  [45] remotes_2.5.0       withr_3.0.3        
+##  [47] S7_0.2.2            backports_1.5.1    
+##  [49] performance_0.19.0  zen4R_0.10.6       
+##  [51] fauxpas_0.6.0       R.utils_2.13.0     
+##  [53] MASS_7.3-65         pbivnorm_0.6.0     
+##  [55] tools_4.6.1         quadprog_1.5-8     
+##  [57] R.oo_1.27.1         glue_1.8.1         
+##  [59] rorcid_0.7.0        R.cache_0.17.0     
+##  [61] grid_4.6.1          reshape2_1.4.5     
+##  [63] generics_0.1.4      gtable_0.3.6       
+##  [65] tzdb_0.5.0          R.methodsS3_1.8.2  
+##  [67] hms_1.1.4           xml2_1.6.0         
+##  [69] utf8_1.2.6          pillar_1.11.1      
+##  [71] splines_4.6.1       renv_1.3.1         
+##  [73] tidyselect_1.2.1    git2r_0.36.2       
+##  [75] reformulas_0.4.4    osfr_0.2.9         
+##  [77] svglite_2.2.2       crul_1.6.0         
+##  [79] stats4_4.6.1        xfun_0.62          
+##  [81] stringi_1.8.9       qpdf_1.4.1         
+##  [83] yaml_2.3.12         boot_1.3-32        
+##  [85] evaluate_1.0.5      httpcode_0.3.0     
+##  [87] codecheck_0.32.0    cli_3.6.6          
+##  [89] xtable_1.8-8        parameters_0.30.0  
+##  [91] systemfonts_1.3.2   Rdpack_2.6.6       
+##  [93] jquerylib_0.1.4     Rcpp_1.1.2         
+##  [95] readxl_1.6.0        XML_3.99-0.25      
+##  [97] parallel_4.6.1      parsedate_1.3.2    
+##  [99] bayestestR_0.20.0   viridisLite_0.4.3  
+## [101] mvtnorm_1.4-2       scales_1.4.0       
+## [103] insight_1.7.0       rlang_1.3.0        
+## [105] mnormt_2.1.2
+\end{verbatim}
+
+\section{Citation}\label{citation}
+
+Cheryl Lim (2026). CODECHECK certificate YYYY-NNN.
+\url{https://doi.org/10.5281/zenodo.XXXXXXX}
+
+\end{document}

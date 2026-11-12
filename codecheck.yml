@@ -1,0 +1,32 @@
+---
+version: https://codecheck.org.uk/spec/config/1.0
+paper:
+  title: 'From Misconduct to Reform: Understanding Perceptions of Those who Commit
+    and Call out Questionable Research Practices'
+  authors:
+  - name: Savannah Lewis
+  - name: Alexa Tullett
+  reference: https://doi.org/10.71240/lcyc.675029
+manifest:
+- file: codecheck/reproduced_analysis.html
+  comment: Knitted output of the author's analysis; contains the report's Tables 3
+    to 12 and Figures 1 to 3 (Table 1, the power analysis, was not checked)
+- file: codecheck/refit_paper_coding.csv
+  comment: Refit of the Integrity, Likeability and Trueness models with the report's
+    severity coding (-1/0/1); compare Tables 4, 6 and 7
+- file: codecheck/exclusion_flow.csv
+  comment: Participant counts at each exclusion step (certificate section 3)
+codechecker:
+- name: Cheryl Lim
+  ORCID: 0009-0004-5766-1392
+summary: The author's R Markdown analysis ran unmodified from start to finish and
+  reproduced the author's committed HTML. The Integrity, Trueness, attribute-choice,
+  CFA and demographic results of the Outcomes Report were reproduced. The Likeability
+  tables were reproduced only with a model structure that the shipped code rejects
+  as singular, and the report's tables use a different severity coding (-1/0/1) from
+  the code (0/1/2). The preregistered no-variability and attention-check exclusions
+  return zero rows in the code, so the reported exclusion counts cannot be reproduced.
+repository: https://github.com/codecheckers/Perception-of-researcher-roles
+check_time: 2026-11-11 12:00:00
+certificate: 2026-030
+report: https://doi.org/10.5281/zenodo.24192775
